@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'drivers.apps.DriversConfig',
     'payments.apps.PaymentsConfig',
     'trips.apps.TripsConfig',
-    'vehicles.apps.VehiclesConfig'
+    'vehicles.apps.VehiclesConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

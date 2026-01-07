@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Поездка №{{ trip.id }}{% endblock %}
+{% block content %}
+<h2>Поездка №{{ trip.id }}</h2>
+<p><strong>Откуда:</strong> {{ trip.origin }}</p>
+<p><strong>Куда:</strong> {{ trip.destination }}</p>
+<p><strong>Статус:</strong> {{ trip.status }}</p>
+
+{% if trip.driver %}
+    <h3>Водитель</h3>
+    <p>{{ trip.driver.user.username }} — {{ trip.driver.bio }}</p>
+
+    <h3>Машина</h3>
+    <p>{{ trip.vehicle.make }} {{ trip.vehicle.model }} ({{ trip.vehicle.plate_number }})</p>
+{% else %}
+    <p>Поездка пока не принята водителем.</p>
+{% endif %}
+{% endblock %}

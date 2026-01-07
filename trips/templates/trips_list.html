@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Список поездок{% endblock %}
+{% block content %}
+<h2>Список поездок</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Откуда</th>
+            <th>Куда</th>
+            <th>Статус</th>
+            <th>Водитель</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for trip in trips %}
+        <tr>
+            <td>{{ trip.id }}</td>
+            <td>{{ trip.origin }}</td>
+            <td>{{ trip.destination }}</td>
+            <td>{{ trip.status }}</td>
+            <td>
+                {% if trip.driver %}
+                    {{ trip.driver.user.username }}
+                {% else %}
+                    —
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
